@@ -1,0 +1,16 @@
+Query:
+select count(city)*100/10 AS 'Percentage of students in a city', city from customers group by city;
+result: +----------------------------------+------------+
+| Percentage of students in a city | city       |
++----------------------------------+------------+
+|                           0.0000 | NULL       |
+|                          10.0000 | Brazil     |
+|                          10.0000 | GTA        |
+|                          10.0000 | New Jersey |
+|                          20.0000 | New York   |
+|                          30.0000 | Toronto    |
+|                          10.0000 | USA        |
+|                          10.0000 | WDC        |
++----------------------------------+------------+
+
+explanation: This querie shows the percentage of users in particular city.
