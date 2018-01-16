@@ -1,0 +1,753 @@
+MariaDB [(none)]> use csd2204w18
+Database changed
+MariaDB [csd2204w18]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| csd2204w18         |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
++--------------------+
+6 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> show tables;
+Empty set (0.00 sec)
+
+MariaDB [csd2204w18]> CREATE TABLE manu(
+    -> Code INTEGER(3) AUTO_INCREMENT ,
+    -> Name VARCHAR(50) NOT NULL,
+    -> CONSTRAINT PK_MANU PRIMARY KEY (CODE)
+    -> );
+Query OK, 0 rows affected (0.71 sec)
+
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> INSERT INTO manu(Name) VALUES('Sony');
+Query OK, 1 row affected (0.06 sec)
+
+MariaDB [csd2204w18]> INSERT INTO manu(Name) VALUES('Creative Labs');
+Query OK, 1 row affected (0.09 sec)
+
+MariaDB [csd2204w18]> INSERT INTO manu(Name) VALUES('Hewlett-Packard');
+Query OK, 1 row affected (0.17 sec)
+
+MariaDB [csd2204w18]> INSERT INTO manu(Name) VALUES('Iomega');
+Query OK, 1 row affected (0.11 sec)
+
+MariaDB [csd2204w18]> INSERT INTO manu(Name) VALUES('Fujitsu');
+Query OK, 1 row affected (0.07 sec)
+
+MariaDB [csd2204w18]> INSERT INTO manu(Name) VALUES('Winchester');
+Query OK, 1 row affected (0.02 sec)
+
+MariaDB [csd2204w18]> INSERT INTO manu(Name) VALUES('moxDroid Labs Inc');
+Query OK, 1 row affected (0.03 sec)
+
+MariaDB [csd2204w18]> INSERT INTO manu(Name) VALUES("Dell");
+Query OK, 1 row affected (0.04 sec)
+
+MariaDB [csd2204w18]> INSERT INTO manu(Name) VALUES("Bell Labs");
+Query OK, 1 row affected (0.02 sec)
+
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> CREATE TABLE Products (
+    ->     Code INTEGER(3) AUTO_INCREMENT,
+    ->     Name VARCHAR(255) NOT NULL ,
+    ->     Price DECIMAL NOT NULL ,
+    ->     Manufacturer INTEGER(3),
+    ->     CONSTRAINT PK_PRODUCTS PRIMARY KEY (Code),
+    ->     CONSTRAINT FK_PRODUCTS FOREIGN KEY (Manufacturer) REFERENCES manu(Code) 
+    ->     );
+Query OK, 0 rows affected (0.72 sec)
+
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> INSERT INTO Products(Name,Price,Manufacturer) VALUES('Hard drive',240,5);
+Query OK, 1 row affected (0.05 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Products(Name,Price,Manufacturer) VALUES('Memory',120,6);
+Query OK, 1 row affected (0.04 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Products(Name,Price,Manufacturer) VALUES('ZIP drive',150,4);
+Query OK, 1 row affected (0.07 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Products(Name,Price,Manufacturer) VALUES('Floppy disk',5,6);
+Query OK, 1 row affected (0.07 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Products(Name,Price,Manufacturer) VALUES('Monitor',240,1);
+Query OK, 1 row affected (0.05 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Products(Name,Price,Manufacturer) VALUES('DVD drive',180,2);
+Query OK, 1 row affected (0.07 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Products(Name,Price,Manufacturer) VALUES('CD drive',90,2);
+Query OK, 1 row affected (0.11 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Products(Name,Price,Manufacturer) VALUES('Printer',270,3);
+Query OK, 1 row affected (0.11 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Products(Name,Price,Manufacturer) VALUES('Toner cartridge',66,3);
+Query OK, 1 row affected (0.06 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Products(Name,Price,Manufacturer) VALUES('DVD burner',180,2);
+Query OK, 1 row affected (0.11 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Products(Name,Price,Manufacturer) VALUES('Printer',40.00,7);
+Query OK, 1 row affected (0.16 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Products(Name,Price,Manufacturer) VALUES('Toner cartridge',54.00,7);
+Query OK, 1 row affected (0.14 sec)
+
+MariaDB [csd2204w18]> INSERT INTO Products(Name,Price,Manufacturer) VALUES('DVD burner',78.00,7);
+Query OK, 1 row affected (0.07 sec)
+
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> desc manu;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| Code  | int(3)      | NO   | PRI | NULL    | auto_increment |
+| Name  | varchar(50) | NO   |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+2 rows in set (0.05 sec)
+
+MariaDB [csd2204w18]> desc products;
++--------------+---------------+------+-----+---------+----------------+
+| Field        | Type          | Null | Key | Default | Extra          |
++--------------+---------------+------+-----+---------+----------------+
+| Code         | int(3)        | NO   | PRI | NULL    | auto_increment |
+| Name         | varchar(255)  | NO   |     | NULL    |                |
+| Price        | decimal(10,0) | NO   |     | NULL    |                |
+| Manufacturer | int(3)        | YES  | MUL | NULL    |                |
++--------------+---------------+------+-----+---------+----------------+
+4 rows in set (0.01 sec)
+
+MariaDB [csd2204w18]> select products.code, products.name, manu.name from manu INNER JOIN products on products.code=manu.code;
++------+-----------------+-------------------+
+| code | name            | name              |
++------+-----------------+-------------------+
+|    1 | Hard drive      | Sony              |
+|    2 | Memory          | Creative Labs     |
+|    3 | ZIP drive       | Hewlett-Packard   |
+|    4 | Floppy disk     | Iomega            |
+|    5 | Monitor         | Fujitsu           |
+|    6 | DVD drive       | Winchester        |
+|    7 | CD drive        | moxDroid Labs Inc |
+|    8 | Printer         | Dell              |
+|    9 | Toner cartridge | Bell Labs         |
++------+-----------------+-------------------+
+9 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> select * from products;
++------+-----------------+-------+--------------+
+| Code | Name            | Price | Manufacturer |
++------+-----------------+-------+--------------+
+|    1 | Hard drive      |   240 |            5 |
+|    2 | Memory          |   120 |            6 |
+|    3 | ZIP drive       |   150 |            4 |
+|    4 | Floppy disk     |     5 |            6 |
+|    5 | Monitor         |   240 |            1 |
+|    6 | DVD drive       |   180 |            2 |
+|    7 | CD drive        |    90 |            2 |
+|    8 | Printer         |   270 |            3 |
+|    9 | Toner cartridge |    66 |            3 |
+|   10 | DVD burner      |   180 |            2 |
+|   11 | Printer         |    40 |            7 |
+|   12 | Toner cartridge |    54 |            7 |
+|   13 | DVD burner      |    78 |            7 |
++------+-----------------+-------+--------------+
+13 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> select * from manu;
++------+-------------------+
+| Code | Name              |
++------+-------------------+
+|    1 | Sony              |
+|    2 | Creative Labs     |
+|    3 | Hewlett-Packard   |
+|    4 | Iomega            |
+|    5 | Fujitsu           |
+|    6 | Winchester        |
+|    7 | moxDroid Labs Inc |
+|    8 | Dell              |
+|    9 | Bell Labs         |
++------+-------------------+
+9 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> select count(*), manufacturer FROM products as p INNER JOIN manu m ON m.code=p.manufacturer GROUP BY manufacturer;
++----------+--------------+
+| count(*) | manufacturer |
++----------+--------------+
+|        1 |            1 |
+|        3 |            2 |
+|        2 |            3 |
+|        1 |            4 |
+|        1 |            5 |
+|        2 |            6 |
+|        3 |            7 |
++----------+--------------+
+7 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> select count(*), manufacturer,m.name FROM products as p INNER JOIN manu m ON m.code=p.manufacturer GROUP BY manufacturer;
++----------+--------------+-------------------+
+| count(*) | manufacturer | name              |
++----------+--------------+-------------------+
+|        1 |            1 | Sony              |
+|        3 |            2 | Creative Labs     |
+|        2 |            3 | Hewlett-Packard   |
+|        1 |            4 | Iomega            |
+|        1 |            5 | Fujitsu           |
+|        2 |            6 | Winchester        |
+|        3 |            7 | moxDroid Labs Inc |
++----------+--------------+-------------------+
+7 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> select count(*), manufacturer,manu.name FROM products as p INNER JOIN manu m ON m.code=p.manufacturer GROUP BY manufacturer;
+ERROR 1054 (42S22): Unknown column 'manu.name' in 'field list'
+MariaDB [csd2204w18]> SELECT COUNT(*),p.manufacturer,m.name FROM products as p inner join manu m ON m.code=p.manufaturer GROUP BY manufacturer having manufacturer < 4;
+ERROR 1054 (42S22): Unknown column 'p.manufaturer' in 'on clause'
+MariaDB [csd2204w18]> SELECT COUNT(*),manufacturer,m.name FROM products as p inner join manu m ON m.code=p.manufaturer GROUP BY manufacturer having manufacturer < 4;
+ERROR 1054 (42S22): Unknown column 'p.manufaturer' in 'on clause'
+MariaDB [csd2204w18]> SELECT COUNT(*),manufacturer,m.name FROM products as p inner join manu m ON m.code=p.manufacturer GROUP BY manufacturer having manufacturer < 4;
++----------+--------------+-----------------+
+| COUNT(*) | manufacturer | name            |
++----------+--------------+-----------------+
+|        1 |            1 | Sony            |
+|        3 |            2 | Creative Labs   |
+|        2 |            3 | Hewlett-Packard |
++----------+--------------+-----------------+
+3 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> SELECT COUNT(*),manufacturer,m.name FROM products as p inner join manu m ON m.code=p.manufacturer GROUP BY manufacturer having count(*) = 2;
++----------+--------------+-----------------+
+| COUNT(*) | manufacturer | name            |
++----------+--------------+-----------------+
+|        2 |            3 | Hewlett-Packard |
+|        2 |            6 | Winchester      |
++----------+--------------+-----------------+
+2 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> SELECT COUNT(*),manufacturer,m.name FROM products as p inner join manu m ON m.code=p.manufacturer GROUP BY manufacturer having manufacturer in (2,3);
++----------+--------------+-----------------+
+| COUNT(*) | manufacturer | name            |
++----------+--------------+-----------------+
+|        3 |            2 | Creative Labs   |
+|        2 |            3 | Hewlett-Packard |
++----------+--------------+-----------------+
+2 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> SELECT COUNT(*),manufacturer,m.name FROM products as p inner join manu m ON m.code=p.manufacturer GROUP BY manufacturer having m.code in (2,3);
+ERROR 1054 (42S22): Unknown column 'm.code' in 'having clause'
+MariaDB [csd2204w18]> SELECT COUNT(*),manufacturer,m.name FROM products as p inner join manu m ON m.code=p.manufacturer GROUP BY manufacturer having p.code in (2,3);
+ERROR 1054 (42S22): Unknown column 'p.code' in 'having clause'
+MariaDB [csd2204w18]> SELECT COUNT(*),manufacturer,m.name FROM products as p inner join manu m ON m.code=p.manufacturer GROUP BY manufacturer having code in (2,3);
+ERROR 1054 (42S22): Unknown column 'code' in 'having clause'
+MariaDB [csd2204w18]> SELECT COUNT(*),manufacturer,m.name FROM products as p inner join manu m ON m.code=p.manufacturer GROUP BY manufacturer having name in (2,3);
+Empty set, 7 warnings (0.00 sec)
+
+MariaDB [csd2204w18]> SELECT COUNT(*),manufacturer,m.name FROM products as p inner join manu m ON m.code=p.manufacturer GROUP BY manufacturer having manu.code in (2,3);
+ERROR 1054 (42S22): Unknown column 'manu.code' in 'having clause'
+MariaDB [csd2204w18]> SELECT COUNT(*),manufacturer,m.name FROM manufacturer as p inner join manu m ON m.code=p.manufacturer GROUP BY manufacturer having manu.code in (2,3);
+ERROR 1146 (42S02): Table 'csd2204w18.manufacturer' doesn't exist
+MariaDB [csd2204w18]> SELECT COUNT(*),manufacturer,m.name FROM products as p inner join manu m ON m.code=p.manufacturer GROUP BY manufacturer having manu.code in (2,3);
+ERROR 1054 (42S22): Unknown column 'manu.code' in 'having clause'
+MariaDB [csd2204w18]> SELECT PRODUCTS.CODE, PRODUCTS.NAME, MANU.NAME from manu left join products on products.code = manu.code;
++------+-----------------+-------------------+
+| CODE | NAME            | NAME              |
++------+-----------------+-------------------+
+|    1 | Hard drive      | Sony              |
+|    2 | Memory          | Creative Labs     |
+|    3 | ZIP drive       | Hewlett-Packard   |
+|    4 | Floppy disk     | Iomega            |
+|    5 | Monitor         | Fujitsu           |
+|    6 | DVD drive       | Winchester        |
+|    7 | CD drive        | moxDroid Labs Inc |
+|    8 | Printer         | Dell              |
+|    9 | Toner cartridge | Bell Labs         |
++------+-----------------+-------------------+
+9 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> SELECT PRODUCTS.CODE, PRODUCTS.NAME, MANU.NAME from manu left join products on manu.code= products.code;
++------+-----------------+-------------------+
+| CODE | NAME            | NAME              |
++------+-----------------+-------------------+
+|    1 | Hard drive      | Sony              |
+|    2 | Memory          | Creative Labs     |
+|    3 | ZIP drive       | Hewlett-Packard   |
+|    4 | Floppy disk     | Iomega            |
+|    5 | Monitor         | Fujitsu           |
+|    6 | DVD drive       | Winchester        |
+|    7 | CD drive        | moxDroid Labs Inc |
+|    8 | Printer         | Dell              |
+|    9 | Toner cartridge | Bell Labs         |
++------+-----------------+-------------------+
+9 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> SELECT PRODUCTS.CODE, PRODUCTS.NAME, MANU.NAME from manu left join products on products.manufacturer = products.code;
++------+------+-------------------+
+| CODE | NAME | NAME              |
++------+------+-------------------+
+| NULL | NULL | Sony              |
+| NULL | NULL | Creative Labs     |
+| NULL | NULL | Hewlett-Packard   |
+| NULL | NULL | Iomega            |
+| NULL | NULL | Fujitsu           |
+| NULL | NULL | Winchester        |
+| NULL | NULL | moxDroid Labs Inc |
+| NULL | NULL | Dell              |
+| NULL | NULL | Bell Labs         |
++------+------+-------------------+
+9 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> SELECT PRODUCTS.CODE, PRODUCTS.NAME, PRODUCTS.NAME from manu left join products on manu.code = products.manufacturer;
++------+-----------------+-----------------+
+| CODE | NAME            | NAME            |
++------+-----------------+-----------------+
+|    5 | Monitor         | Monitor         |
+|    6 | DVD drive       | DVD drive       |
+|    7 | CD drive        | CD drive        |
+|   10 | DVD burner      | DVD burner      |
+|    8 | Printer         | Printer         |
+|    9 | Toner cartridge | Toner cartridge |
+|    3 | ZIP drive       | ZIP drive       |
+|    1 | Hard drive      | Hard drive      |
+|    2 | Memory          | Memory          |
+|    4 | Floppy disk     | Floppy disk     |
+|   11 | Printer         | Printer         |
+|   12 | Toner cartridge | Toner cartridge |
+|   13 | DVD burner      | DVD burner      |
+| NULL | NULL            | NULL            |
+| NULL | NULL            | NULL            |
++------+-----------------+-----------------+
+15 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> SELECT PRODUCTS.CODE, PRODUCTS.NAME, PRODUCTS.NAME from products left join products on manu.code = products.manufacturer;
+ERROR 1066 (42000): Not unique table/alias: 'products'
+MariaDB [csd2204w18]> select * from products;
++------+-----------------+-------+--------------+
+| Code | Name            | Price | Manufacturer |
++------+-----------------+-------+--------------+
+|    1 | Hard drive      |   240 |            5 |
+|    2 | Memory          |   120 |            6 |
+|    3 | ZIP drive       |   150 |            4 |
+|    4 | Floppy disk     |     5 |            6 |
+|    5 | Monitor         |   240 |            1 |
+|    6 | DVD drive       |   180 |            2 |
+|    7 | CD drive        |    90 |            2 |
+|    8 | Printer         |   270 |            3 |
+|    9 | Toner cartridge |    66 |            3 |
+|   10 | DVD burner      |   180 |            2 |
+|   11 | Printer         |    40 |            7 |
+|   12 | Toner cartridge |    54 |            7 |
+|   13 | DVD burner      |    78 |            7 |
++------+-----------------+-------+--------------+
+13 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> select 8 from manu;
++---+
+| 8 |
++---+
+| 8 |
+| 8 |
+| 8 |
+| 8 |
+| 8 |
+| 8 |
+| 8 |
+| 8 |
+| 8 |
++---+
+9 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> select * from manu;
++------+-------------------+
+| Code | Name              |
++------+-------------------+
+|    1 | Sony              |
+|    2 | Creative Labs     |
+|    3 | Hewlett-Packard   |
+|    4 | Iomega            |
+|    5 | Fujitsu           |
+|    6 | Winchester        |
+|    7 | moxDroid Labs Inc |
+|    8 | Dell              |
+|    9 | Bell Labs         |
++------+-------------------+
+9 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> SELECT PRODUCTS.CODE, PRODUCTS.NAME, MANUFACTURER.NAME from products left join products on manu.code = products.manufacturer;
+ERROR 1066 (42000): Not unique table/alias: 'products'
+MariaDB [csd2204w18]> SELECT PRODUCTS.CODE, PRODUCTS.NAME, MANU.NAME from products left join products on manu.code = products.manufacturer;
+ERROR 1066 (42000): Not unique table/alias: 'products'
+MariaDB [csd2204w18]> SELECT PRODUCTS.CODE, PRODUCTS.NAME, MANU.NAME from manu left join products on manu.code = products.manufacturer;
++------+-----------------+-------------------+
+| CODE | NAME            | NAME              |
++------+-----------------+-------------------+
+|    5 | Monitor         | Sony              |
+|    6 | DVD drive       | Creative Labs     |
+|    7 | CD drive        | Creative Labs     |
+|   10 | DVD burner      | Creative Labs     |
+|    8 | Printer         | Hewlett-Packard   |
+|    9 | Toner cartridge | Hewlett-Packard   |
+|    3 | ZIP drive       | Iomega            |
+|    1 | Hard drive      | Fujitsu           |
+|    2 | Memory          | Winchester        |
+|    4 | Floppy disk     | Winchester        |
+|   11 | Printer         | moxDroid Labs Inc |
+|   12 | Toner cartridge | moxDroid Labs Inc |
+|   13 | DVD burner      | moxDroid Labs Inc |
+| NULL | NULL            | Dell              |
+| NULL | NULL            | Bell Labs         |
++------+-----------------+-------------------+
+15 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> SELECT PRODUCTS.CODE, PRODUCTS>NAME, MANU.NAME from manu right join products on products.code = manu.code;
+ERROR 1054 (42S22): Unknown column 'PRODUCTS' in 'field list'
+MariaDB [csd2204w18]> SELECT PRODUCTS.CODE, PRODUCTS.NAME, MANU.NAME from manu right join products on products.code = manu.code;
++------+-----------------+-------------------+
+| CODE | NAME            | NAME              |
++------+-----------------+-------------------+
+|    1 | Hard drive      | Sony              |
+|    2 | Memory          | Creative Labs     |
+|    3 | ZIP drive       | Hewlett-Packard   |
+|    4 | Floppy disk     | Iomega            |
+|    5 | Monitor         | Fujitsu           |
+|    6 | DVD drive       | Winchester        |
+|    7 | CD drive        | moxDroid Labs Inc |
+|    8 | Printer         | Dell              |
+|    9 | Toner cartridge | Bell Labs         |
+|   10 | DVD burner      | NULL              |
+|   11 | Printer         | NULL              |
+|   12 | Toner cartridge | NULL              |
+|   13 | DVD burner      | NULL              |
++------+-----------------+-------------------+
+13 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> CREATE TABLE pet(name VARCHAR(20), owner VARCHAR(@)), species VARCHAR(20), sex CHAR(1), birth DATE, death DATE);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '@)), species VARCHAR(20), sex CHAR(1), birth DATE, death DATE)' at line 1
+MariaDB [csd2204w18]> CREATE TABLE pet(name VARCHAR(20), owner VARCHAR(20), species VARCHAR(20), sex CHAR(1), birth DATE, death DATE);
+Query OK, 0 rows affected (0.60 sec)
+
+MariaDB [csd2204w18]> LOAD DATA INFILE'/Applications/XAMPP/bin/pet.txt'INTO TABLE pet;
+ERROR 29 (HY000): File 'C:\Applications\XAMPP\bin\pet.txt' not found (Errcode: 2 "No such file or directory")
+MariaDB [csd2204w18]> LOAD DATA INFILE'U:/sers/28813/ownloads/pet.txt'INTO TABLE pet;
+ERROR 29 (HY000): File 'U:\sers\28813\ownloads\pet.txt' not found (Errcode: 2 "No such file or directory")
+MariaDB [csd2204w18]> LOAD DATA INFILE'C:/xampp/pet.txt'INTO TABLE pet;
+Query OK, 8 rows affected, 7 warnings (0.17 sec)
+Records: 8  Deleted: 0  Skipped: 0  Warnings: 7
+
+MariaDB [csd2204w18]> select * from pet;
++----------+--------+---------+------+------------+------------+
+| name     | owner  | species | sex  | birth      | death      |
++----------+--------+---------+------+------------+------------+
+| Fluffy   | Harold | cat     | f    | 1993-02-04 | 0000-00-00 |
+| Claws    | Gwen   | cat     | m    | 1994-03-17 | 0000-00-00 |
+| Buffy    | Harold | dog     | f    | 1989-05-13 | 0000-00-00 |
+| Fang     | Benny  | dog     | m    | 1990-08-27 | 0000-00-00 |
+| Bowser   | Diane  | dog     | m    | 1979-08-31 | 1995-07-29 |
+| Chirpy   | Gwen   | bird    | f    | 1998-09-11 | 0000-00-00 |
+| Whistler | Gwen   | bird    |      | 1997-12-09 | 0000-00-00 |
+| Slim     | Benny  | snake   | m    | 1996-04-29 | 0000-00-00 |
++----------+--------+---------+------+------------+------------+
+8 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> select curdate();
++------------+
+| curdate()  |
++------------+
+| 2018-01-16 |
++------------+
+1 row in set (0.02 sec)
+
+MariaDB [csd2204w18]> select now();
++---------------------+
+| now()               |
++---------------------+
+| 2018-01-16 10:17:03 |
++---------------------+
+1 row in set (0.00 sec)
+
+MariaDB [csd2204w18]> select name,birthdate from pet;
+ERROR 1054 (42S22): Unknown column 'birthdate' in 'field list'
+MariaDB [csd2204w18]> select name,birth from pet;
++----------+------------+
+| name     | birth      |
++----------+------------+
+| Fluffy   | 1993-02-04 |
+| Claws    | 1994-03-17 |
+| Buffy    | 1989-05-13 |
+| Fang     | 1990-08-27 |
+| Bowser   | 1979-08-31 |
+| Chirpy   | 1998-09-11 |
+| Whistler | 1997-12-09 |
+| Slim     | 1996-04-29 |
++----------+------------+
+8 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> select name, TIMESTAMPDIFF(Year,birth,curdate()) AS AGE from pet;
++----------+------+
+| name     | AGE  |
++----------+------+
+| Fluffy   |   24 |
+| Claws    |   23 |
+| Buffy    |   28 |
+| Fang     |   27 |
+| Bowser   |   38 |
+| Chirpy   |   19 |
+| Whistler |   20 |
+| Slim     |   21 |
++----------+------+
+8 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> select name, TIMESTAMPDIFF(Month,birth,curdate()) AS AGE from pet;
++----------+------+
+| name     | AGE  |
++----------+------+
+| Fluffy   |  299 |
+| Claws    |  285 |
+| Buffy    |  344 |
+| Fang     |  328 |
+| Bowser   |  460 |
+| Chirpy   |  232 |
+| Whistler |  241 |
+| Slim     |  260 |
++----------+------+
+8 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> select name, TIMESTAMPDIFF(Day,birth,curdate()) AS AGE from pet;
++----------+-------+
+| name     | AGE   |
++----------+-------+
+| Fluffy   |  9112 |
+| Claws    |  8706 |
+| Buffy    | 10475 |
+| Fang     | 10004 |
+| Bowser   | 14018 |
+| Chirpy   |  7067 |
+| Whistler |  7343 |
+| Slim     |  7932 |
++----------+-------+
+8 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> select name, TIMESTAMPDIFF(Day,birth,curdate()) AS AGE from pet where AGE >= 23;
+ERROR 1054 (42S22): Unknown column 'AGE' in 'where clause'
+MariaDB [csd2204w18]> select name, TIMESTAMPDIFF(Day,birth,curdate()) AS AGE from pet having AGE = 23;
+Empty set (0.00 sec)
+
+MariaDB [csd2204w18]> select name, TIMESTAMPDIFF(Day,birth,curdate()) AS 'AGE' from pet having AGE = 23;
+Empty set (0.00 sec)
+
+MariaDB [csd2204w18]> select name, TIMESTAMPDIFF(year,birth,curdate()) AS 'AGE' from pet having AGE = 23;
++-------+------+
+| name  | AGE  |
++-------+------+
+| Claws |   23 |
++-------+------+
+1 row in set (0.00 sec)
+
+MariaDB [csd2204w18]> select name, TIMESTAMPDIFF(year,birth,curdate()) AS 'AGE' from pet having AGE >= 23;
++--------+------+
+| name   | AGE  |
++--------+------+
+| Fluffy |   24 |
+| Claws  |   23 |
+| Buffy  |   28 |
+| Fang   |   27 |
+| Bowser |   38 |
++--------+------+
+5 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> select name, TIMESTAMPDIFF(year,birth,curdate()) AS 'AGE' from pet having AGE and pet;
+ERROR 1054 (42S22): Unknown column 'pet' in 'having clause'
+MariaDB [csd2204w18]> select * from pet where name REGEXP 'F';
++--------+--------+---------+------+------------+------------+
+| name   | owner  | species | sex  | birth      | death      |
++--------+--------+---------+------+------------+------------+
+| Fluffy | Harold | cat     | f    | 1993-02-04 | 0000-00-00 |
+| Buffy  | Harold | dog     | f    | 1989-05-13 | 0000-00-00 |
+| Fang   | Benny  | dog     | m    | 1990-08-27 | 0000-00-00 |
++--------+--------+---------+------+------------+------------+
+3 rows in set (0.07 sec)
+
+MariaDB [csd2204w18]> select * from pet where name REGEXP '^F';
++--------+--------+---------+------+------------+------------+
+| name   | owner  | species | sex  | birth      | death      |
++--------+--------+---------+------+------------+------------+
+| Fluffy | Harold | cat     | f    | 1993-02-04 | 0000-00-00 |
+| Fang   | Benny  | dog     | m    | 1990-08-27 | 0000-00-00 |
++--------+--------+---------+------+------------+------------+
+2 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> select * from pet where name REGEXP 'y$';
++--------+--------+---------+------+------------+------------+
+| name   | owner  | species | sex  | birth      | death      |
++--------+--------+---------+------+------------+------------+
+| Fluffy | Harold | cat     | f    | 1993-02-04 | 0000-00-00 |
+| Buffy  | Harold | dog     | f    | 1989-05-13 | 0000-00-00 |
+| Chirpy | Gwen   | bird    | f    | 1998-09-11 | 0000-00-00 |
++--------+--------+---------+------+------------+------------+
+3 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> select * from pet where name rLIKE 'y$';
++--------+--------+---------+------+------------+------------+
+| name   | owner  | species | sex  | birth      | death      |
++--------+--------+---------+------+------------+------------+
+| Fluffy | Harold | cat     | f    | 1993-02-04 | 0000-00-00 |
+| Buffy  | Harold | dog     | f    | 1989-05-13 | 0000-00-00 |
+| Chirpy | Gwen   | bird    | f    | 1998-09-11 | 0000-00-00 |
++--------+--------+---------+------+------------+------------+
+3 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> select * from pet where name rLIKE '^F';
++--------+--------+---------+------+------------+------------+
+| name   | owner  | species | sex  | birth      | death      |
++--------+--------+---------+------+------------+------------+
+| Fluffy | Harold | cat     | f    | 1993-02-04 | 0000-00-00 |
+| Fang   | Benny  | dog     | m    | 1990-08-27 | 0000-00-00 |
++--------+--------+---------+------+------------+------------+
+2 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> select * from pet where name rLIKE '^F' AND 'y$';
+Empty set, 4 warnings (0.00 sec)
+
+MariaDB [csd2204w18]> select * from pet where name rLIKE '^Fy$';
+Empty set (0.00 sec)
+
+MariaDB [csd2204w18]> select * from pet where name rLIKE '^F___y$';
+Empty set (0.00 sec)
+
+MariaDB [csd2204w18]> select * from pet where name rLIKE '^F_____y$';
+Empty set (0.00 sec)
+
+MariaDB [csd2204w18]> select * from pet where name rLIKE '^F.*y$';
++--------+--------+---------+------+------------+------------+
+| name   | owner  | species | sex  | birth      | death      |
++--------+--------+---------+------+------------+------------+
+| Fluffy | Harold | cat     | f    | 1993-02-04 | 0000-00-00 |
++--------+--------+---------+------+------------+------------+
+1 row in set (0.02 sec)
+
+MariaDB [csd2204w18]> select * from pet where name rLIKE '^F.y$';
+Empty set (0.00 sec)
+
+MariaDB [csd2204w18]> select * from pet where name rLIKE '^F.+y$';
++--------+--------+---------+------+------------+------------+
+| name   | owner  | species | sex  | birth      | death      |
++--------+--------+---------+------+------------+------------+
+| Fluffy | Harold | cat     | f    | 1993-02-04 | 0000-00-00 |
++--------+--------+---------+------+------------+------------+
+1 row in set (0.00 sec)
+
+MariaDB [csd2204w18]> 
+MariaDB [csd2204w18]> select * from pet where name REGXP '^[0-9]$';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'REGXP '^[0-9]$'' at line 1
+MariaDB [csd2204w18]> select * from pet where name REGXP '^[0-9]+$';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'REGXP '^[0-9]+$'' at line 1
+MariaDB [csd2204w18]> select * from pet where name REGXP '^[0-9]*$';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'REGXP '^[0-9]*$'' at line 1
+MariaDB [csd2204w18]> select * from pet;
++----------+--------+---------+------+------------+------------+
+| name     | owner  | species | sex  | birth      | death      |
++----------+--------+---------+------+------------+------------+
+| Fluffy   | Harold | cat     | f    | 1993-02-04 | 0000-00-00 |
+| Claws    | Gwen   | cat     | m    | 1994-03-17 | 0000-00-00 |
+| Buffy    | Harold | dog     | f    | 1989-05-13 | 0000-00-00 |
+| Fang     | Benny  | dog     | m    | 1990-08-27 | 0000-00-00 |
+| Bowser   | Diane  | dog     | m    | 1979-08-31 | 1995-07-29 |
+| Chirpy   | Gwen   | bird    | f    | 1998-09-11 | 0000-00-00 |
+| Whistler | Gwen   | bird    |      | 1997-12-09 | 0000-00-00 |
+| Slim     | Benny  | snake   | m    | 1996-04-29 | 0000-00-00 |
++----------+--------+---------+------+------------+------------+
+8 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> select * from pet where name REGXP '+h';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'REGXP '+h'' at line 1
+MariaDB [csd2204w18]> select * from pet where name REGXP '.^h';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'REGXP '.^h'' at line 1
+MariaDB [csd2204w18]> select * from pet where name REGXP '.+h';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'REGXP '.+h'' at line 1
+MariaDB [csd2204w18]> select * from pet where name REGXP '.+h';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'REGXP '.+h'' at line 1
+MariaDB [csd2204w18]> select * from pet where name REGXP '.h';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'REGXP '.h'' at line 1
+MariaDB [csd2204w18]> select * from pet where name REGXP '.h';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'REGXP '.h'' at line 1
+MariaDB [csd2204w18]> select * from pet where name REGeXP '.h';
++----------+-------+---------+------+------------+------------+
+| name     | owner | species | sex  | birth      | death      |
++----------+-------+---------+------+------------+------------+
+| Chirpy   | Gwen  | bird    | f    | 1998-09-11 | 0000-00-00 |
+| Whistler | Gwen  | bird    |      | 1997-12-09 | 0000-00-00 |
++----------+-------+---------+------+------------+------------+
+2 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> insert into pet (name,owner,species,sex,birth,death) values(123,'benny','bird','f',1996-07-05,0000-00-00);
+Query OK, 1 row affected, 1 warning (0.82 sec)
+
+MariaDB [csd2204w18]> insert into pet (name,owner,species,sex,birth,death) values(345e,'gwen','bird','f',1996-05-05,0000-00-00);
+ERROR 1054 (42S22): Unknown column '345e' in 'field list'
+MariaDB [csd2204w18]> insert into pet (name,owner,species,sex,birth,death) values(345,'gwen','bird','f',1996-05-05,0000-00-00);
+Query OK, 1 row affected, 1 warning (0.08 sec)
+
+MariaDB [csd2204w18]> select * from pet;
++----------+--------+---------+------+------------+------------+
+| name     | owner  | species | sex  | birth      | death      |
++----------+--------+---------+------+------------+------------+
+| Fluffy   | Harold | cat     | f    | 1993-02-04 | 0000-00-00 |
+| Claws    | Gwen   | cat     | m    | 1994-03-17 | 0000-00-00 |
+| Buffy    | Harold | dog     | f    | 1989-05-13 | 0000-00-00 |
+| Fang     | Benny  | dog     | m    | 1990-08-27 | 0000-00-00 |
+| Bowser   | Diane  | dog     | m    | 1979-08-31 | 1995-07-29 |
+| Chirpy   | Gwen   | bird    | f    | 1998-09-11 | 0000-00-00 |
+| Whistler | Gwen   | bird    |      | 1997-12-09 | 0000-00-00 |
+| Slim     | Benny  | snake   | m    | 1996-04-29 | 0000-00-00 |
+| 123      | benny  | bird    | f    | 0000-00-00 | 0000-00-00 |
+| 345      | gwen   | bird    | f    | 0000-00-00 | 0000-00-00 |
++----------+--------+---------+------+------------+------------+
+10 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> select * from pet where REGEXP '.h[a-z]+';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'REGEXP '.h[a-z]+'' at line 1
+MariaDB [csd2204w18]> select * from pet where REGEXP '.h[^0-9]';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'REGEXP '.h[^0-9]'' at line 1
+MariaDB [csd2204w18]> select * from pet where name REGEXP '.h[^0-9]';
++----------+-------+---------+------+------------+------------+
+| name     | owner | species | sex  | birth      | death      |
++----------+-------+---------+------+------------+------------+
+| Chirpy   | Gwen  | bird    | f    | 1998-09-11 | 0000-00-00 |
+| Whistler | Gwen  | bird    |      | 1997-12-09 | 0000-00-00 |
++----------+-------+---------+------+------------+------------+
+2 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> select * from pet where name REGEXP '.h[^0-9]{3}';
++----------+-------+---------+------+------------+------------+
+| name     | owner | species | sex  | birth      | death      |
++----------+-------+---------+------+------------+------------+
+| Chirpy   | Gwen  | bird    | f    | 1998-09-11 | 0000-00-00 |
+| Whistler | Gwen  | bird    |      | 1997-12-09 | 0000-00-00 |
++----------+-------+---------+------+------------+------------+
+2 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> select * from pet where name REGEXP '^[0-9]{3}';
++------+-------+---------+------+------------+------------+
+| name | owner | species | sex  | birth      | death      |
++------+-------+---------+------+------------+------------+
+| 123  | benny | bird    | f    | 0000-00-00 | 0000-00-00 |
+| 345  | gwen  | bird    | f    | 0000-00-00 | 0000-00-00 |
++------+-------+---------+------+------------+------------+
+2 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> select * from pet where name REGEXP '^[0-9]{2}';
++------+-------+---------+------+------------+------------+
+| name | owner | species | sex  | birth      | death      |
++------+-------+---------+------+------------+------------+
+| 123  | benny | bird    | f    | 0000-00-00 | 0000-00-00 |
+| 345  | gwen  | bird    | f    | 0000-00-00 | 0000-00-00 |
++------+-------+---------+------+------------+------------+
+2 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> select * from pet where name REGEXP '^[0-9]{2}$';
+Empty set (0.02 sec)
+
