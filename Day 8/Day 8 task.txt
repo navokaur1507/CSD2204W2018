@@ -1,0 +1,5 @@
+select first_name,last_name,salary from employees where salary > ALL (select salary from employees where JOB_ID ='SH_CLERK') order by salary;
+
+select first_name,last_name,salary from employees where salary > ANY (select salary from employees where JOB_ID ='SH_CLERK') order by salary;
+
+select first_name,last_name,salary from employees where salary > SOME (select salary from employees where JOB_ID ='SH_CLERK') order by salary;
