@@ -1,0 +1,663 @@
+MariaDB [(none)]> CREATE TABLE manu(Code INTEGER(3) AUTO_INCREMENT ,Name VARCHAR(50) NOT NULL,CONSTRAINT PK_MANU PRIMARY KEY (CODE));INSERT INTO manu(Name) VALUES('Sony');INSERT INTO manu(Name) VALUES('Creative Labs');INSERT INTO manu(Name) VALUES('Hewlett-Packard');INSERT INTO manu(Name) VALUES('Iomega');INSERT INTO manu(Name) VALUES('Fujitsu');INSERT INTO manu(Name) VALUES('Winchester');INSERT INTO manu(Name) VALUES('moxDroid Labs Inc');INSERT INTO manu(Name) VALUES("Dell");INSERT INTO manu(Name) VALUES("Bell Labs");CREATE TABLE Products (    Code INTEGER(3) AUTO_INCREMENT,    Name VARCHAR(255) NOT NULL ,    Price DECIMAL NOT NULL ,    Manufacturer INTEGER(3),    CONSTRAINT PK_PRODUCTS PRIMARY KEY (Code),    CONSTRAINT FK_PRODUCTS FOREIGN KEY (Manufacturer) REFERENCES manu(Code)     );INSERT INTO Products(Name,Price,Manufacturer) VALUES('Hard drive',240,5);INSERT INTO Products(Name,Price,Manufacturer) VALUES('Memory',120,6);INSERT INTO Products(Name,Price,Manufacturer) VALUES('ZIP drive',150,4);INSERT INTO Products(Name,Price,Manufacturer) VALUES('Floppy disk',5,6);INSERT INTO Products(Name,Price,Manufacturer) VALUES('Monitor',240,1);INSERT INTO Products(Name,Price,Manufacturer) VALUES('DVD drive',180,2);INSERT INTO Products(Name,Price,Manufacturer) VALUES('CD drive',90,2);INSERT INTO Products(Name,Price,Manufacturer) VALUES('Printer',270,3);INSERT INTO Products(Name,Price,Manufacturer) VALUES('Toner cartridge',66,3);INSERT INTO Products(Name,Price,Manufacturer) VALUES('DVD burner',180,2);INSERT INTO Products(Name,Price,Manufacturer) VALUES('Printer',40.00,7);INSERT INTO Products(Name,Price,Manufacturer) VALUES('Toner cartridge',54.00,7);INSERT INTO Products(Name,Price,Manufacturer) VALUES('DVD burner',78.00,7);
+ERROR 1046 (3D000): No database selected
+ERROR 1046 (3D000): No database selected
+ERROR 1046 (3D000): No database selected
+ERROR 1046 (3D000): No database selected
+ERROR 1046 (3D000): No database selected
+ERROR 1046 (3D000): No database selected
+ERROR 1046 (3D000): No database selected
+ERROR 1046 (3D000): No database selected
+ERROR 1046 (3D000): No database selected
+ERROR 1046 (3D000): No database selected
+ERROR 1046 (3D000): No database selected
+ERROR 1046 (3D000): No database selected
+ERROR 1046 (3D000): No database selected
+ERROR 1046 (3D000): No database selected
+ERROR 1046 (3D000): No database selected
+ERROR 1046 (3D000): No database selected
+ERROR 1046 (3D000): No database selected
+ERROR 1046 (3D000): No database selected
+ERROR 1046 (3D000): No database selected
+ERROR 1046 (3D000): No database selected
+ERROR 1046 (3D000): No database selected
+ERROR 1046 (3D000): No database selected
+ERROR 1046 (3D000): No database selected
+ERROR 1046 (3D000): No database selected
+MariaDB [(none)]> use csd2204w18;
+Database changed
+MariaDB [csd2204w18]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| ac_mast            |
+| assignment1        |
+| csd2204w18         |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
+| walmart            |
++--------------------+
+9 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> CREATE TABLE manu(Code INTEGER(3) AUTO_INCREMENT ,Name VARCHAR(50) NOT NULL,CONSTRAINT PK_MANU PRIMARY KEY (CODE));INSERT INTO manu(Name) VALUES('Sony');INSERT INTO manu(Name) VALUES('Creative Labs');INSERT INTO manu(Name) VALUES('Hewlett-Packard');INSERT INTO manu(Name) VALUES('Iomega');INSERT INTO manu(Name) VALUES('Fujitsu');INSERT INTO manu(Name) VALUES('Winchester');INSERT INTO manu(Name) VALUES('moxDroid Labs Inc');INSERT INTO manu(Name) VALUES("Dell");INSERT INTO manu(Name) VALUES("Bell Labs");CREATE TABLE Products (    Code INTEGER(3) AUTO_INCREMENT,    Name VARCHAR(255) NOT NULL ,    Price DECIMAL NOT NULL ,    Manufacturer INTEGER(3),    CONSTRAINT PK_PRODUCTS PRIMARY KEY (Code),    CONSTRAINT FK_PRODUCTS FOREIGN KEY (Manufacturer) REFERENCES manu(Code)     );INSERT INTO Products(Name,Price,Manufacturer) VALUES('Hard drive',240,5);INSERT INTO Products(Name,Price,Manufacturer) VALUES('Memory',120,6);INSERT INTO Products(Name,Price,Manufacturer) VALUES('ZIP drive',150,4);INSERT INTO Products(Name,Price,Manufacturer) VALUES('Floppy disk',5,6);INSERT INTO Products(Name,Price,Manufacturer) VALUES('Monitor',240,1);INSERT INTO Products(Name,Price,Manufacturer) VALUES('DVD drive',180,2);INSERT INTO Products(Name,Price,Manufacturer) VALUES('CD drive',90,2);INSERT INTO Products(Name,Price,Manufacturer) VALUES('Printer',270,3);INSERT INTO Products(Name,Price,Manufacturer) VALUES('Toner cartridge',66,3);INSERT INTO Products(Name,Price,Manufacturer) VALUES('DVD burner',180,2);INSERT INTO Products(Name,Price,Manufacturer) VALUES('Printer',40.00,7);INSERT INTO Products(Name,Price,Manufacturer) VALUES('Toner cartridge',54.00,7);INSERT INTO Products(Name,Price,Manufacturer) VALUES('DVD burner',78.00,7);
+Query OK, 0 rows affected (0.47 sec)
+
+Query OK, 1 row affected (0.07 sec)
+
+Query OK, 1 row affected (0.11 sec)
+
+Query OK, 1 row affected (0.18 sec)
+
+Query OK, 1 row affected (0.05 sec)
+
+Query OK, 1 row affected (0.09 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 0 rows affected (0.25 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.06 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.08 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+MariaDB [csd2204w18]> show tables;
++----------------------+
+| Tables_in_csd2204w18 |
++----------------------+
+| countries            |
+| departments          |
+| employees            |
+| job_history          |
+| jobs                 |
+| locations            |
+| manu                 |
+| products             |
+| regions              |
++----------------------+
+9 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> create view d10_v1 as select * from products;
+Query OK, 0 rows affected (0.06 sec)
+
+MariaDB [csd2204w18]> insert into d10_v1 values(14,'nav',35,10);
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`csd2204w18`.`products`, CONSTRAINT `FK_PRODUCTS` FOREIGN KEY (`Manufacturer`) REFERENCES `manu` (`Code`))
+MariaDB [csd2204w18]> insert into d10_v1 values(14,'nav',35,8);
+Query OK, 1 row affected (0.09 sec)
+
+MariaDB [csd2204w18]> select * from products;
++------+-----------------+-------+--------------+
+| Code | Name            | Price | Manufacturer |
++------+-----------------+-------+--------------+
+|    1 | Hard drive      |   240 |            5 |
+|    2 | Memory          |   120 |            6 |
+|    3 | ZIP drive       |   150 |            4 |
+|    4 | Floppy disk     |     5 |            6 |
+|    5 | Monitor         |   240 |            1 |
+|    6 | DVD drive       |   180 |            2 |
+|    7 | CD drive        |    90 |            2 |
+|    8 | Printer         |   270 |            3 |
+|    9 | Toner cartridge |    66 |            3 |
+|   10 | DVD burner      |   180 |            2 |
+|   11 | Printer         |    40 |            7 |
+|   12 | Toner cartridge |    54 |            7 |
+|   13 | DVD burner      |    78 |            7 |
+|   14 | nav             |    35 |            8 |
++------+-----------------+-------+--------------+
+14 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> delete d10_v1 where id=14;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'where id=14' at line 1
+MariaDB [csd2204w18]> delete d10_v1 where id = 14;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'where id = 14' at line 1
+MariaDB [csd2204w18]> delete d10_v1 where code = 14;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'where code = 14' at line 1
+MariaDB [csd2204w18]> delete d10_v1 where id = 14;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'where id = 14' at line 1
+MariaDB [csd2204w18]> delete d10_v1 where id = 14;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'where id = 14' at line 1
+MariaDB [csd2204w18]> delete from d10_v1 where id = 14;
+ERROR 1054 (42S22): Unknown column 'id' in 'where clause'
+MariaDB [csd2204w18]> delete from d10_v1 where code = 14;
+Query OK, 1 row affected (0.10 sec)
+
+MariaDB [csd2204w18]> select * from products;
++------+-----------------+-------+--------------+
+| Code | Name            | Price | Manufacturer |
++------+-----------------+-------+--------------+
+|    1 | Hard drive      |   240 |            5 |
+|    2 | Memory          |   120 |            6 |
+|    3 | ZIP drive       |   150 |            4 |
+|    4 | Floppy disk     |     5 |            6 |
+|    5 | Monitor         |   240 |            1 |
+|    6 | DVD drive       |   180 |            2 |
+|    7 | CD drive        |    90 |            2 |
+|    8 | Printer         |   270 |            3 |
+|    9 | Toner cartridge |    66 |            3 |
+|   10 | DVD burner      |   180 |            2 |
+|   11 | Printer         |    40 |            7 |
+|   12 | Toner cartridge |    54 |            7 |
+|   13 | DVD burner      |    78 |            7 |
++------+-----------------+-------+--------------+
+13 rows in set (0.00 sec)
+
+MariaDB [csd2204w18]> create view v_today (today) AS select now();
+Query OK, 0 rows affected (0.06 sec)
+
+MariaDB [csd2204w18]> select * from v-today;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '-today' at line 1
+MariaDB [csd2204w18]> select * from v_today;
++---------------------+
+| today               |
++---------------------+
+| 2018-01-19 19:17:54 |
++---------------------+
+1 row in set (0.00 sec)
+
+MariaDB [csd2204w18]> create or replace view v_today (NOW) AS SELECT NOW();
+Query OK, 0 rows affected (0.06 sec)
+
+MariaDB [csd2204w18]> select * from v_today;
++---------------------+
+| NOW                 |
++---------------------+
+| 2018-01-19 19:18:45 |
++---------------------+
+1 row in set (0.00 sec)
+
+MariaDB [csd2204w18]> create view v_today (today) AS SELECT current_date;
+ERROR 1050 (42S01): Table 'v_today' already exists
+MariaDB [csd2204w18]> drop view if exists v_today;
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [csd2204w18]> select * from v-today;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '-today' at line 1
+MariaDB [csd2204w18]> use walmart;
+Database changed
+MariaDB [walmart]> show tables;
++--------------------+
+| Tables_in_walmart  |
++--------------------+
+| customers          |
+| departments        |
+| employeejoblog     |
+| employees          |
+| employeesections   |
+| feedbacks          |
+| orders             |
+| permission         |
+| position           |
+| positionpermission |
+| productdiscounts   |
+| products           |
+| walmartcards       |
++--------------------+
+13 rows in set (0.00 sec)
+
+MariaDB [walmart]> select * from employees;
++----+-------------------+------------+-------------------+------------+
+| ID | EmployeeSectionID | PositionID | Name              | Phone      |
++----+-------------------+------------+-------------------+------------+
+|  1 |                 2 |          4 | Stillmann Bleddon | 5068855634 |
+|  2 |                 2 |          6 | Rheta Szach       | 6435535469 |
+|  3 |                 5 |          7 | Duane Sarchwell   | 3797624325 |
+|  4 |                 2 |          4 | Devlen Sallinger  | 6894566273 |
+|  5 |                 2 |          6 | Stevie Dutnall    | 6299119992 |
+|  6 |                 3 |          7 | Sherry Penwright  | 8828478466 |
+|  7 |                 5 |          7 | Noemi Capinetti   | 6175968861 |
+|  8 |                 7 |          3 | Waylan Giffon     | 4304641461 |
+|  9 |                 3 |          5 | Lek Chapman       | 5531646950 |
+| 10 |                 5 |          6 | Linda Mapis       | 3301118138 |
+| 11 |                 1 |          5 | Cherlyn Lett      | 1079158895 |
+| 12 |                 6 |          5 | Dolf Biskupski    | 2052476761 |
+| 13 |                 7 |          1 | Peyton Bertin     | 1039093295 |
+| 14 |                 2 |          7 | Cary Carillo      | 1617370016 |
+| 15 |                 6 |          1 | Karlotta Greville | 5159156256 |
+| 16 |                 1 |          5 | Annamaria Pentlow | 2543910870 |
+| 17 |                 1 |          4 | Laurice Wynett    | 4346120730 |
+| 18 |                 1 |          4 | Mahala Hissett    | 1767911993 |
+| 19 |                 8 |          7 | Arnie Usherwood   | 6895606001 |
+| 20 |                 2 |          6 | Sherrie Tinmouth  | 8465906637 |
++----+-------------------+------------+-------------------+------------+
+20 rows in set (0.00 sec)
+
+MariaDB [walmart]> update employees set Phone = 8975500000 where ID = 6;
+Query OK, 1 row affected (0.23 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [walmart]> select * from employees;
++----+-------------------+------------+-------------------+------------+
+| ID | EmployeeSectionID | PositionID | Name              | Phone      |
++----+-------------------+------------+-------------------+------------+
+|  1 |                 2 |          4 | Stillmann Bleddon | 5068855634 |
+|  2 |                 2 |          6 | Rheta Szach       | 6435535469 |
+|  3 |                 5 |          7 | Duane Sarchwell   | 3797624325 |
+|  4 |                 2 |          4 | Devlen Sallinger  | 6894566273 |
+|  5 |                 2 |          6 | Stevie Dutnall    | 6299119992 |
+|  6 |                 3 |          7 | Sherry Penwright  | 8975500000 |
+|  7 |                 5 |          7 | Noemi Capinetti   | 6175968861 |
+|  8 |                 7 |          3 | Waylan Giffon     | 4304641461 |
+|  9 |                 3 |          5 | Lek Chapman       | 5531646950 |
+| 10 |                 5 |          6 | Linda Mapis       | 3301118138 |
+| 11 |                 1 |          5 | Cherlyn Lett      | 1079158895 |
+| 12 |                 6 |          5 | Dolf Biskupski    | 2052476761 |
+| 13 |                 7 |          1 | Peyton Bertin     | 1039093295 |
+| 14 |                 2 |          7 | Cary Carillo      | 1617370016 |
+| 15 |                 6 |          1 | Karlotta Greville | 5159156256 |
+| 16 |                 1 |          5 | Annamaria Pentlow | 2543910870 |
+| 17 |                 1 |          4 | Laurice Wynett    | 4346120730 |
+| 18 |                 1 |          4 | Mahala Hissett    | 1767911993 |
+| 19 |                 8 |          7 | Arnie Usherwood   | 6895606001 |
+| 20 |                 2 |          6 | Sherrie Tinmouth  | 8465906637 |
++----+-------------------+------------+-------------------+------------+
+20 rows in set (0.00 sec)
+
+MariaDB [walmart]> select * from permission;
++----+------------------+---------------------------------------------------------------------+
+| ID | Name             | Description                                                         |
++----+------------------+---------------------------------------------------------------------+
+|  1 | All level pass   | Some one who can do anything in the store like the upper management |
+|  2 | Employee Handler | Someone who schedules the employees and can fire them on there will |
+|  3 | Cash Jobs        | Someone who deals with money of the customer.                       |
+|  4 | Customer Service | Someone who represents the store in an official manner.             |
+|  5 | Security         | Someone who can detain any customer for checking for shoplifting.   |
+|  6 | ReStocker        | Someone who has access to the warehouse and restocks the shelf.     |
+|  7 | Cleaner          | Keeps the floor clean                                               |
++----+------------------+---------------------------------------------------------------------+
+7 rows in set (0.00 sec)
+
+MariaDB [walmart]> update permission set where Description = 'keep the floor clean' where ID = 1;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'where Description = 'keep the floor clean' where ID = 1' at line 1
+MariaDB [walmart]> update permission set where Description = "keep the floor clean" where ID = 1;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'where Description = "keep the floor clean" where ID = 1' at line 1
+MariaDB [walmart]> update Permission set where Description = "keep the floor clean" where ID = 1;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'where Description = "keep the floor clean" where ID = 1' at line 1
+MariaDB [walmart]> update Permission set Description = "keeps the floor clean" where ID = 1;
+Query OK, 1 row affected (0.09 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [walmart]> select * from permission;
++----+------------------+---------------------------------------------------------------------+
+| ID | Name             | Description                                                         |
++----+------------------+---------------------------------------------------------------------+
+|  1 | All level pass   | keeps the floor clean                                               |
+|  2 | Employee Handler | Someone who schedules the employees and can fire them on there will |
+|  3 | Cash Jobs        | Someone who deals with money of the customer.                       |
+|  4 | Customer Service | Someone who represents the store in an official manner.             |
+|  5 | Security         | Someone who can detain any customer for checking for shoplifting.   |
+|  6 | ReStocker        | Someone who has access to the warehouse and restocks the shelf.     |
+|  7 | Cleaner          | Keeps the floor clean                                               |
++----+------------------+---------------------------------------------------------------------+
+7 rows in set (0.00 sec)
+
+MariaDB [walmart]> update Permission set Description = "keeps the floor clean" where ID IN (1,7);
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 2  Changed: 1  Warnings: 0
+
+MariaDB [walmart]> select * from permission;
++----+------------------+---------------------------------------------------------------------+
+| ID | Name             | Description                                                         |
++----+------------------+---------------------------------------------------------------------+
+|  1 | All level pass   | keeps the floor clean                                               |
+|  2 | Employee Handler | Someone who schedules the employees and can fire them on there will |
+|  3 | Cash Jobs        | Someone who deals with money of the customer.                       |
+|  4 | Customer Service | Someone who represents the store in an official manner.             |
+|  5 | Security         | Someone who can detain any customer for checking for shoplifting.   |
+|  6 | ReStocker        | Someone who has access to the warehouse and restocks the shelf.     |
+|  7 | Cleaner          | keeps the floor clean                                               |
++----+------------------+---------------------------------------------------------------------+
+7 rows in set (0.00 sec)
+
+MariaDB [walmart]> update Permission set Description = "keeps the floor clean" where ID = 7;
+Query OK, 0 rows affected (0.23 sec)
+Rows matched: 1  Changed: 0  Warnings: 0
+
+MariaDB [walmart]> select * from permission;
++----+------------------+---------------------------------------------------------------------+
+| ID | Name             | Description                                                         |
++----+------------------+---------------------------------------------------------------------+
+|  1 | All level pass   | keeps the floor clean                                               |
+|  2 | Employee Handler | Someone who schedules the employees and can fire them on there will |
+|  3 | Cash Jobs        | Someone who deals with money of the customer.                       |
+|  4 | Customer Service | Someone who represents the store in an official manner.             |
+|  5 | Security         | Someone who can detain any customer for checking for shoplifting.   |
+|  6 | ReStocker        | Someone who has access to the warehouse and restocks the shelf.     |
+|  7 | Cleaner          | keeps the floor clean                                               |
++----+------------------+---------------------------------------------------------------------+
+7 rows in set (0.00 sec)
+
+MariaDB [walmart]> update Permission set Description = "Help customer who are facing trouble while searching products" where ID = 1;
+Query OK, 1 row affected (0.17 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [walmart]> select * from permission;
++----+------------------+---------------------------------------------------------------------+
+| ID | Name             | Description                                                         |
++----+------------------+---------------------------------------------------------------------+
+|  1 | All level pass   | Help customer who are facing trouble while searching products       |
+|  2 | Employee Handler | Someone who schedules the employees and can fire them on there will |
+|  3 | Cash Jobs        | Someone who deals with money of the customer.                       |
+|  4 | Customer Service | Someone who represents the store in an official manner.             |
+|  5 | Security         | Someone who can detain any customer for checking for shoplifting.   |
+|  6 | ReStocker        | Someone who has access to the warehouse and restocks the shelf.     |
+|  7 | Cleaner          | keeps the floor clean                                               |
++----+------------------+---------------------------------------------------------------------+
+7 rows in set (0.00 sec)
+
+MariaDB [walmart]> insert into permission select * from Description where ID >4;
+ERROR 1146 (42S02): Table 'walmart.description' doesn't exist
+MariaDB [walmart]> insert into Description select * from Permission where ID >4;
+ERROR 1146 (42S02): Table 'walmart.description' doesn't exist
+MariaDB [walmart]> insert into Permission select * from Permission where ID > 4;
+ERROR 1062 (23000): Duplicate entry '5' for key 'PRIMARY'
+MariaDB [walmart]> show tables;
++--------------------+
+| Tables_in_walmart  |
++--------------------+
+| customers          |
+| departments        |
+| employeejoblog     |
+| employees          |
+| employeesections   |
+| feedbacks          |
+| orders             |
+| permission         |
+| position           |
+| positionpermission |
+| productdiscounts   |
+| products           |
+| walmartcards       |
++--------------------+
+13 rows in set (0.00 sec)
+
+MariaDB [walmart]> select * from products;
++----+--------------+---------------+---------------+-------------------+----------------------------------+-------+--------------+
+| ID | Barcode      | Name          | TaxPercentage | RegisterationDate | Description                      | Price | DepartmentID |
++----+--------------+---------------+---------------+-------------------+----------------------------------+-------+--------------+
+|  1 | 753411916579 | Coffee Maker  |          3.72 | 2018-02-02        | Coffee Maker is being sold here  | 69.20 |            1 |
+|  2 | 192794631710 | Blender       |          6.88 | 2017-10-30        | Blender is being sold here       | 64.46 |            1 |
+|  3 | 597958194362 | Microwave     |          3.17 | 2017-05-21        | Microwave is being sold here     | 55.21 |            1 |
+|  4 | 136904965765 | Toaster       |          3.36 | 2017-07-05        | Toaster is being sold here       |  2.17 |            1 |
+|  5 | 335998991149 | Iron          |          4.35 | 2017-11-09        | Iron is being sold here          | 47.45 |            1 |
+|  6 | 274153606907 | Car Stereo    |          7.44 | 2017-02-16        | Car Stereo is being sold here    | 91.83 |            2 |
+|  7 | 871694090866 | Car Floor Mat |          7.23 | 2017-10-21        | Car Floor Mat is being sold here | 38.92 |            2 |
+|  8 | 607048733406 | Air Filters   |          7.53 | 2017-08-17        | Air Filters is being sold here   | 28.97 |            2 |
+|  9 | 855968326905 | Motor Oil     |          1.46 | 2017-12-09        | Motor Oil is being sold here     | 55.29 |            2 |
+| 10 | 361352998722 | Tires         |          3.64 | 2017-11-05        | Tires is being sold here         | 18.52 |            2 |
+| 11 | 978930476607 | Pads          |          3.53 | 2017-10-19        | Pads is being sold here          | 32.75 |            3 |
+| 12 | 643996216208 | Cribs         |          3.29 | 2017-10-19        | Cribs is being sold here         | 75.96 |            3 |
+| 13 | 786557151200 | Swings        |          7.48 | 2017-11-28        | Swings is being sold here        | 24.73 |            3 |
+| 14 | 477380031803 | Beddings      |          6.64 | 2017-07-10        | Beddings is being sold here      | 23.24 |            3 |
+| 15 | 857589035967 | Baby Hats     |          7.46 | 2017-12-22        | Baby Hats is being sold here     | 29.01 |            3 |
+| 16 | 429508414070 | Jackets       |          4.34 | 2017-03-28        | Jackets is being sold here       | 40.00 |            4 |
+| 17 | 289154250793 | Tops          |          7.74 | 2017-08-30        | Tops is being sold here          |  3.98 |            4 |
+| 18 | 894321414110 | Bottoms       |          5.09 | 2017-07-05        | Bottoms is being sold here       | 77.61 |            4 |
+| 19 | 842417126860 | Sleepers      |          2.64 | 2017-10-08        | Sleepers is being sold here      | 38.48 |            4 |
+| 20 | 219384517395 | T-Shirts      |          2.27 | 2017-10-24        | T-Shirts is being sold here      | 55.96 |            4 |
+| 21 | 982711733712 | TV            |          5.96 | 2017-11-29        | TV is being sold here            | 94.15 |            5 |
+| 22 | 918067147086 | Laptop        |          7.35 | 2017-06-06        | Laptop is being sold here        |  1.72 |            5 |
+| 23 | 642607084252 | Speakers      |          1.47 | 2017-09-01        | Speakers  is being sold here     |  9.82 |            5 |
+| 24 | 601440201013 | Monitors      |          4.57 | 2018-02-09        | Monitors is being sold here      | 95.56 |            5 |
+| 25 | 421439676132 | Pen Drive     |          1.59 | 2017-01-30        | Pen Drive is being sold here     | 76.12 |            5 |
+| 26 | 796730782044 | Table         |          8.22 | 2017-01-29        | Table is being sold here         | 28.89 |            6 |
+| 27 | 573484615644 | Chair         |          9.12 | 2018-01-08        | Chair is being sold here         | 57.35 |            6 |
+| 28 | 447059657809 | Bed           |          3.09 | 2017-07-29        | Bed is being sold here           | 16.87 |            6 |
+| 29 | 638241354466 | Mirror        |          2.48 | 2017-03-02        | Mirror is being sold here        | 27.60 |            6 |
+| 30 | 733814223172 | Window        |          5.29 | 2017-01-27        | Window is being sold here        | 31.56 |            6 |
+| 31 | 664535380947 | Christmas     |          4.23 | 2017-07-28        | Christmas is being sold here     |  7.72 |            7 |
+| 32 | 444584192435 | Wedding       |          4.72 | 2017-11-01        | Wedding is being sold here       | 40.69 |            7 |
+| 33 | 525265883203 | Retirement    |          8.23 | 2017-09-26        | Retirement is being sold here    | 94.92 |            7 |
+| 34 | 759138792576 | Anniversary   |          2.93 | 2017-08-31        | Anniversary is being sold here   | 79.11 |            7 |
+| 35 | 578013849502 | Birthday      |          8.10 | 2017-04-18        | Birthday is being sold here      | 42.06 |            7 |
+| 36 | 857837212398 | Shampoo       |          2.27 | 2017-08-29        | Shampoo is being sold here       | 54.77 |            8 |
+| 37 | 461320693047 | Conditioner   |          3.54 | 2017-08-31        | Conditioner is being sold here   | 48.34 |            8 |
+| 38 | 881571380022 | Oral Care     |          4.61 | 2017-12-04        | Oral Care is being sold here     | 35.10 |            8 |
+| 39 | 296552725969 | First Aid     |          5.49 | 2017-08-01        | First Aid is being sold here     | 67.44 |            8 |
+| 40 | 188548127470 | Body Wash     |          7.17 | 2017-06-22        | Body Wash is being sold here     | 74.81 |            8 |
+| 41 | 519403655183 | Bed           |          2.05 | 2017-03-17        | Bed is being sold here           | 58.47 |            9 |
+| 42 | 614748285812 | Bed Sheet     |          6.04 | 2017-04-27        | Bed Sheet is being sold here     | 15.15 |            9 |
+| 43 | 553928268716 | Bed Pillow    |          2.17 | 2018-01-25        | Bed Pillow is being sold here    | 92.11 |            9 |
+| 44 | 680085099453 | Containers    |          1.46 | 2017-05-10        | Containers is being sold here    | 66.55 |            9 |
+| 45 | 295520391519 | Cookware      |          1.61 | 2018-01-28        | Cookware is being sold here      | 27.82 |            9 |
+| 46 | 864726249014 | Diamond       |          8.17 | 2017-08-09        | Diamond is being sold here       | 50.81 |           10 |
+| 47 | 339894631508 | Gold          |          2.27 | 2017-10-25        | Gold is being sold here          | 72.40 |           10 |
+| 48 | 299267111738 | Silver        |          4.96 | 2017-09-12        | Silver is being sold here        | 92.55 |           10 |
+| 49 | 960307514893 | Pearl         |          8.32 | 2018-01-17        | Pearl is being sold here         | 53.09 |           10 |
+| 50 | 342479329831 | Gemstone      |          3.97 | 2017-09-13        | Gemstone is being sold here      | 72.81 |           10 |
+| 51 | 323688450130 | DVD           |          7.74 | 2018-01-03        | DVD is being sold here           | 81.99 |           11 |
+| 52 | 235965029978 | Blueray       |          7.19 | 2017-03-28        | Blueray is being sold here       | 17.30 |           11 |
+| 53 | 984982811446 | Country       |          9.42 | 2017-07-18        | Country is being sold here       | 36.34 |           11 |
+| 54 | 328306512514 | Pop           |          3.37 | 2018-02-14        | Pop is being sold here           | 55.42 |           11 |
+| 55 | 443913421128 | Classic       |          7.47 | 2017-09-03        | Classic is being sold here       | 12.84 |           11 |
+| 56 | 840272247006 | Glue          |          7.10 | 2017-12-20        | Glue is being sold here          | 64.21 |           12 |
+| 57 | 911963076290 | Pen           |          1.61 | 2017-07-14        | Pen is being sold here           | 76.97 |           12 |
+| 58 | 132095995533 | Blinders      |          4.43 | 2017-10-06        | Blinders is being sold here      | 95.36 |           12 |
+| 59 | 206135900771 | Crayons       |          2.93 | 2017-09-07        | Crayons is being sold here       | 26.60 |           12 |
+| 60 | 332647512099 | Pencil        |          7.46 | 2017-03-28        | Pencil is being sold here        | 55.29 |           12 |
+| 61 | 484240537041 | Lawnmovers    |          4.41 | 2018-01-07        | Lawnmovers is being sold here    |  4.99 |           13 |
+| 62 | 202049401892 | BBQ           |          4.85 | 2017-07-10        | BBQ is being sold here           | 36.79 |           13 |
+| 63 | 676059755408 | Swings        |          3.94 | 2017-11-11        | Swings is being sold here        | 30.99 |           13 |
+| 64 | 985845512395 | Hammock       |          8.78 | 2017-06-07        | Hammock is being sold here       | 71.99 |           13 |
+| 65 | 610287296366 | Climbers      |          3.81 | 2017-03-23        | Climbers is being sold here      | 21.73 |           13 |
++----+--------------+---------------+---------------+-------------------+----------------------------------+-------+--------------+
+65 rows in set (0.00 sec)
+
+MariaDB [walmart]> insert into products(ID,Barcode,Name,Price,TaxPercentageDescriptionID,RegistrationDate,Description) values(66,123968579854,'Baby Soap',24.88,5.13,2017-12-15,'soap for baby bath');
+ERROR 1054 (42S22): Unknown column 'TaxPercentageDescriptionID' in 'field list'
+MariaDB [walmart]> insert into products(ID,Barcode,Name,Price,TaxPercentage DescriptionID,RegistrationDate,Description) values(66,123968579854,'Baby Soap',24.88,5.13,2017-12-15,'soap for baby bath');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DescriptionID,RegistrationDate,Description) values(66,123968579854,'Baby Soap',2' at line 1
+MariaDB [walmart]> insert into products(ID,Barcode,Name,Price,TaxPercentage,RegistrationDate,Description) values(66,123968579854,'Baby Soap',24.88,5.13,2017-12-15,'soap for baby bath');
+ERROR 1054 (42S22): Unknown column 'RegistrationDate' in 'field list'
+MariaDB [walmart]> insert into products(ID,Barcode,Name,Price,TaxPercentage,RegisterationDate,Description) values(66,123968579854,'Baby Soap',24.88,5.13,2017-12-15,'soap for baby bath');
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`walmart`.`products`, CONSTRAINT `products_ibfk_1` FOREIGN KEY (`DepartmentID`) REFERENCES `departments` (`ID`))
+MariaDB [walmart]> select * from permission;
++----+------------------+---------------------------------------------------------------------+
+| ID | Name             | Description                                                         |
++----+------------------+---------------------------------------------------------------------+
+|  1 | All level pass   | Help customer who are facing trouble while searching products       |
+|  2 | Employee Handler | Someone who schedules the employees and can fire them on there will |
+|  3 | Cash Jobs        | Someone who deals with money of the customer.                       |
+|  4 | Customer Service | Someone who represents the store in an official manner.             |
+|  5 | Security         | Someone who can detain any customer for checking for shoplifting.   |
+|  6 | ReStocker        | Someone who has access to the warehouse and restocks the shelf.     |
+|  7 | Cleaner          | keeps the floor clean                                               |
++----+------------------+---------------------------------------------------------------------+
+7 rows in set (0.00 sec)
+
+MariaDB [walmart]> delete from permission where ID = 7;
+ERROR 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`walmart`.`positionpermission`, CONSTRAINT `positionpermission_ibfk_1` FOREIGN KEY (`PermissionID`) REFERENCES `permission` (`ID`))
+MariaDB [walmart]> delete from permission where ID = 1;
+Query OK, 1 row affected (0.10 sec)
+
+MariaDB [walmart]> select * from permission;
++----+------------------+---------------------------------------------------------------------+
+| ID | Name             | Description                                                         |
++----+------------------+---------------------------------------------------------------------+
+|  2 | Employee Handler | Someone who schedules the employees and can fire them on there will |
+|  3 | Cash Jobs        | Someone who deals with money of the customer.                       |
+|  4 | Customer Service | Someone who represents the store in an official manner.             |
+|  5 | Security         | Someone who can detain any customer for checking for shoplifting.   |
+|  6 | ReStocker        | Someone who has access to the warehouse and restocks the shelf.     |
+|  7 | Cleaner          | keeps the floor clean                                               |
++----+------------------+---------------------------------------------------------------------+
+6 rows in set (0.00 sec)
+
+MariaDB [walmart]> show tables;
++--------------------+
+| Tables_in_walmart  |
++--------------------+
+| customers          |
+| departments        |
+| employeejoblog     |
+| employees          |
+| employeesections   |
+| feedbacks          |
+| orders             |
+| permission         |
+| position           |
+| positionpermission |
+| productdiscounts   |
+| products           |
+| walmartcards       |
++--------------------+
+13 rows in set (0.00 sec)
+
+MariaDB [walmart]> select * from orders;
++-----+------------+------------+-----------+-------------------+----------+-------------+---------------------+
+| ID  | CustomerID | EmployeeID | ProductID | ProductDiscountID | Quantity | PaymentType | DateTime            |
++-----+------------+------------+-----------+-------------------+----------+-------------+---------------------+
+|   1 |         56 |         12 |        53 |                 6 |        9 |           1 | 2017-02-21 13:31:18 |
+|   2 |        385 |          8 |        37 |                35 |        9 |           3 | 2017-04-24 09:42:03 |
+|   3 |        226 |          5 |        28 |                57 |        6 |           1 | 2018-01-07 19:48:15 |
+|   4 |        180 |          8 |        21 |                39 |        4 |           3 | 2017-03-29 06:42:46 |
+|   5 |        210 |         13 |         3 |                27 |        2 |           3 | 2017-03-22 16:03:14 |
+|   6 |        259 |          9 |        10 |                15 |        9 |           3 | 2017-04-29 04:54:46 |
+|   7 |         20 |         18 |        28 |                47 |        7 |           1 | 2018-01-09 00:22:09 |
+|   8 |        211 |          9 |         8 |                55 |        7 |           2 | 2018-01-10 07:11:27 |
+|   9 |        303 |          2 |        44 |                63 |        1 |           2 | 2018-01-09 08:32:10 |
+|  10 |         25 |          3 |        28 |                53 |        2 |           1 | 2017-04-13 06:12:27 |
+|  11 |        134 |         15 |        42 |                38 |        7 |           1 | 2017-10-31 07:18:27 |
+|  12 |        155 |         17 |        63 |                 1 |        7 |           1 | 2018-01-21 08:08:43 |
+|  13 |        277 |          9 |        24 |                18 |        3 |           3 | 2018-01-28 17:25:20 |
+|  14 |          3 |         11 |        36 |                29 |        7 |           2 | 2017-03-16 02:16:16 |
+|  15 |        230 |         14 |        22 |                18 |        5 |           1 | 2017-11-29 19:04:47 |
+|  16 |        316 |          9 |        49 |                45 |        7 |           1 | 2017-08-04 20:40:08 |
+|  17 |        305 |         17 |        23 |                30 |        3 |           3 | 2017-08-26 11:32:25 |
+|  18 |        141 |          7 |        63 |                11 |        4 |           1 | 2017-07-09 02:01:59 |
+|  19 |        291 |         18 |        48 |                15 |        2 |           2 | 2017-11-25 12:54:51 |
+|  20 |        314 |         20 |        22 |                53 |        6 |           3 | 2017-09-04 01:24:39 |
+|  21 |        317 |          8 |        11 |                57 |        1 |           3 | 2018-01-27 18:55:37 |
+|  22 |        266 |          9 |        59 |                 9 |        6 |           1 | 2017-02-27 16:28:16 |
+|  23 |        340 |          5 |        24 |                48 |        1 |           2 | 2017-11-07 04:12:26 |
+|  24 |        485 |         19 |        44 |                41 |        8 |           2 | 2017-02-06 07:45:47 |
+|  25 |        480 |          8 |         2 |                28 |        6 |           1 | 2017-12-29 02:57:47 |
+|  26 |        449 |         15 |        21 |                28 |        5 |           1 | 2018-01-17 08:07:41 |
+|  27 |         29 |         11 |        27 |                52 |        7 |           1 | 2017-12-23 11:24:41 |
+|  28 |        109 |         14 |        29 |                57 |       10 |           3 | 2017-07-12 21:56:13 |
+|  29 |        464 |         18 |        51 |                31 |        5 |           3 | 2017-02-10 20:07:28 |
+|  30 |        314 |          7 |        33 |                 3 |       10 |           2 | 2018-03-01 16:47:59 |
+|  31 |        453 |         14 |        56 |                51 |        9 |           3 | 2017-11-29 16:07:00 |
+|  32 |        212 |         12 |        35 |                61 |        9 |           3 | 2017-11-11 17:44:55 |
+|  33 |        259 |          3 |        41 |                17 |        1 |           3 | 2017-04-14 22:04:42 |
+|  34 |        158 |          5 |        18 |                37 |        9 |           1 | 2017-02-05 14:34:30 |
+|  35 |        142 |          1 |        11 |                25 |        5 |           3 | 2017-04-26 03:56:56 |
+|  36 |        130 |         20 |        37 |                12 |       10 |           1 | 2017-10-24 06:00:24 |
+|  37 |        190 |         14 |        37 |                27 |        3 |           2 | 2017-03-11 17:56:52 |
+|  38 |        256 |         18 |        54 |                36 |        8 |           3 | 2017-09-05 15:35:20 |
+|  39 |        155 |         10 |        14 |                32 |        5 |           3 | 2018-03-12 21:12:29 |
+|  40 |        166 |          8 |        26 |                49 |        2 |           3 | 2018-02-01 07:07:02 |
+|  41 |        346 |         11 |        36 |                45 |        4 |           2 | 2017-12-28 15:10:12 |
+|  42 |        386 |          7 |        50 |                32 |        5 |           2 | 2017-11-09 02:36:08 |
+|  43 |        317 |          2 |        63 |                54 |        9 |           1 | 2017-03-26 17:28:56 |
+|  44 |         68 |         20 |        31 |                31 |        4 |           3 | 2018-03-09 04:25:41 |
+|  45 |        328 |         15 |        61 |                16 |        6 |           1 | 2017-06-06 04:49:04 |
+|  46 |        148 |          1 |         5 |                23 |        7 |           2 | 2017-06-21 21:29:41 |
+|  47 |        289 |          5 |        60 |                14 |        1 |           1 | 2017-11-26 01:22:55 |
+|  48 |         89 |         15 |        47 |                35 |        6 |           2 | 2017-03-28 05:44:43 |
+|  49 |          7 |         14 |        42 |                 5 |        7 |           3 | 2018-01-17 23:13:34 |
+|  50 |        466 |         18 |        15 |                36 |        7 |           3 | 2017-12-19 10:31:29 |
+|  51 |         92 |          3 |        28 |                39 |        2 |           2 | 2017-04-26 05:46:00 |
+|  52 |         79 |         12 |        60 |                21 |        7 |           2 | 2018-01-02 04:32:31 |
+|  53 |         67 |         14 |         1 |                20 |        2 |           3 | 2017-08-02 22:16:03 |
+|  54 |        460 |          9 |        33 |                50 |        9 |           3 | 2017-04-14 20:30:34 |
+|  55 |        468 |         16 |        56 |                18 |        1 |           3 | 2017-10-04 22:12:08 |
+|  56 |        106 |          7 |        19 |                40 |        7 |           1 | 2018-03-04 18:43:39 |
+|  57 |        214 |         16 |        62 |                62 |        8 |           2 | 2017-05-20 06:53:51 |
+|  58 |        237 |          3 |        54 |                44 |        2 |           1 | 2017-10-13 07:19:27 |
+|  59 |        439 |         13 |        32 |                34 |        7 |           3 | 2018-02-02 06:38:33 |
+|  60 |        337 |         10 |        18 |                32 |        5 |           1 | 2017-09-03 03:41:15 |
+|  61 |         46 |          5 |        20 |                 1 |        9 |           1 | 2017-02-26 09:35:29 |
+|  62 |        484 |          8 |        20 |                 2 |        9 |           3 | 2017-12-15 02:27:49 |
+|  63 |        139 |          4 |        53 |                26 |        2 |           1 | 2017-06-03 19:31:57 |
+|  64 |        372 |         20 |        61 |                51 |        4 |           2 | 2017-01-22 02:03:51 |
+|  65 |         86 |          9 |        10 |                 4 |        1 |           3 | 2017-08-21 18:23:49 |
+|  66 |        219 |         11 |        43 |                20 |        4 |           3 | 2017-06-23 03:08:45 |
+|  67 |        282 |         14 |        55 |                12 |        3 |           1 | 2018-03-09 23:09:27 |
+|  68 |        348 |         16 |        52 |                 3 |        2 |           2 | 2017-11-12 07:23:38 |
+|  69 |        215 |         16 |        17 |                 9 |        4 |           1 | 2017-04-26 18:21:41 |
+|  70 |        257 |         15 |        46 |                53 |        7 |           2 | 2017-04-16 23:33:49 |
+|  71 |        333 |         17 |        36 |                37 |        3 |           1 | 2017-10-25 11:50:26 |
+|  72 |        377 |         12 |        17 |                50 |        6 |           2 | 2017-02-05 09:10:58 |
+|  73 |        220 |          1 |         7 |                34 |        4 |           2 | 2017-10-02 18:52:07 |
+|  74 |          4 |         13 |        13 |                51 |        2 |           2 | 2017-09-13 04:42:55 |
+|  75 |         96 |          1 |        36 |                 5 |        1 |           1 | 2017-08-07 02:12:23 |
+|  76 |        185 |         11 |        50 |                50 |        2 |           3 | 2018-02-16 06:02:56 |
+|  77 |        258 |          9 |        12 |                 6 |        5 |           3 | 2018-02-17 08:52:15 |
+|  78 |         82 |         17 |        20 |                47 |        3 |           3 | 2017-04-18 05:36:57 |
+|  79 |        195 |          2 |        63 |                22 |        5 |           3 | 2017-07-30 00:05:00 |
+|  80 |        247 |          5 |        35 |                16 |        1 |           2 | 2018-01-24 01:54:07 |
+|  81 |        180 |          4 |         4 |                29 |        1 |           3 | 2017-07-09 06:38:14 |
+|  82 |          8 |          6 |        37 |                50 |        2 |           2 | 2017-03-06 12:43:27 |
+|  83 |         94 |         17 |        61 |                12 |       10 |           1 | 2017-08-09 12:26:35 |
+|  84 |        322 |         20 |        41 |                13 |        8 |           2 | 2017-04-28 22:23:13 |
+|  85 |        474 |         15 |         5 |                 3 |        5 |           1 | 2017-02-28 03:08:16 |
+|  86 |        181 |         12 |        28 |                40 |        9 |           1 | 2017-04-01 23:20:34 |
+|  87 |        335 |          8 |        58 |                10 |        8 |           1 | 2017-05-22 17:58:14 |
+|  88 |        185 |         11 |        63 |                59 |        6 |           2 | 2017-08-08 04:43:49 |
+|  89 |        370 |         19 |        28 |                59 |        7 |           1 | 2017-05-31 12:04:56 |
+|  90 |        175 |         12 |        30 |                41 |        5 |           2 | 2017-12-10 07:20:15 |
+|  91 |         98 |         11 |        13 |                56 |        5 |           1 | 2017-11-18 17:57:33 |
+|  92 |         32 |          6 |        47 |                31 |       10 |           1 | 2017-11-06 08:39:06 |
+|  93 |        150 |          8 |         4 |                 5 |        1 |           3 | 2017-12-29 10:32:14 |
+|  94 |        489 |         11 |        13 |                 4 |       10 |           1 | 2017-07-20 07:13:35 |
+|  95 |         20 |          7 |        55 |                22 |        7 |           2 | 2017-03-13 00:34:28 |
+|  96 |        330 |         19 |        52 |                41 |        5 |           1 | 2017-06-25 21:15:40 |
+|  97 |         70 |          9 |        39 |                29 |        5 |           1 | 2017-02-04 17:07:10 |
+|  98 |        192 |          9 |        60 |                64 |        1 |           3 | 2017-12-15 15:08:48 |
+|  99 |        275 |          4 |        22 |                37 |        9 |           1 | 2017-10-30 08:26:21 |
+| 100 |         99 |          4 |        26 |                12 |        3 |           2 | 2018-02-26 16:33:59 |
++-----+------------+------------+-----------+-------------------+----------+-------------+---------------------+
+100 rows in set (0.02 sec)
+
+MariaDB [walmart]> select EMP.Name from employeejoblog EMP inner join customers CUS on EMP.customerID = CUS.ID where Day(FEE.DateTime) = 11;
+ERROR 1054 (42S22): Unknown column 'EMP.Name' in 'field list'
+MariaDB [walmart]> select EMPLOYEE.Name from employeejoblog EMP inner join customers CUS on EMP.customerID = CUS.ID where Day(FEE.DateTime) = 11;
+ERROR 1054 (42S22): Unknown column 'EMPLOYEE.Name' in 'field list'
+MariaDB [walmart]> select EMP.Name from employeejoblog EMP inner join customers CUS on EMP.customerID = CUS.ID where Day(FEE.DateTime) = 11;
+ERROR 1054 (42S22): Unknown column 'EMP.Name' in 'field list'
+MariaDB [walmart]> select P.name from productsdiscounts PD inner join products P on PD.productID = P.name where Max(PD.Discount);
+ERROR 1146 (42S02): Table 'walmart.productsdiscounts' doesn't exist
+MariaDB [walmart]> select P.name from productdiscounts PD inner join products P on PD.productID = P.name where Max(PD.Discount);
+ERROR 1111 (HY000): Invalid use of group function
+MariaDB [walmart]> select P.name from productdiscounts PD inner join products P on PD.productID = P.ID where Max(PD.Discount);
+ERROR 1111 (HY000): Invalid use of group function
+MariaDB [walmart]> select P.name from productdiscounts PD inner join products P on PD.productID = P.ID where PD.Discount = Max(PD.Discount);
+ERROR 1111 (HY000): Invalid use of group function
+MariaDB [walmart]> 
+MariaDB [walmart]> select P.name from productdiscounts PD inner join products P on PD.productID = P.ID where PD.Discount = (select max(discount) from productdiscounts);
++-------------+
+| name        |
++-------------+
+| Anniversary |
++-------------+
+1 row in set (0.02 sec)
+
